@@ -1,3 +1,18 @@
+fetch('https://dog.ceo/api/breeds/list')
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        let breeds = data.message
+        let breedList = document.getElementById('breed-list');
+        breeds.forEach(function(breed) {
+            let breedElement = document.createElement('option');
+            breedElement.setAttribute('value', breed);
+            breedElement.innerHTML = breed;
+            breedList.appendChild(breedElement)
+        })
+    })
+
 let button = document.getElementById('generate');
 
 button.addEventListener('click', function() {
